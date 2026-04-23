@@ -48,6 +48,9 @@ private :
 
 public:
 
+	int max_X;
+	int max_Y;
+
 	void MoveRight(float deltatime);
 	void MoveLeft(float delattime);
 	void MoveUp(float deltatime);

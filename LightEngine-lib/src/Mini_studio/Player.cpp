@@ -96,9 +96,9 @@ void Player::OnUpdate()
 		SetPosition(-10, GetPosition().y);
 	}
 
-	if (GetPosition().x > 810)
+	if (GetPosition().x > max_X)
 	{
-		SetPosition(810, GetPosition().y);
+		SetPosition(max_X, GetPosition().y);
 	}
 
 	if (GetPosition().y < -10)
@@ -106,9 +106,9 @@ void Player::OnUpdate()
 		SetPosition(GetPosition().x, -10);
 	}
 
-	if (GetPosition().y > 810)
+	if (GetPosition().y > max_Y)
 	{
-		SetPosition(GetPosition().x, 810);
+		SetPosition(GetPosition().x, max_Y);
 	}
 
 

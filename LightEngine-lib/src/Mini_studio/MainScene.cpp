@@ -71,7 +71,23 @@ void MainScene::GenerateRandomMaze()
 
 	maze.grid = vv;
 
-	maze.grid[mazeWidth - 1][mazeHeight - 1]->type = 2;
+
+	short randSide = rand() % 2;
+	
+	short randPlace1;
+	short randPlace2;
+
+	switch (randSide)
+	{
+		case 0:
+			randPlace1 = rand() % ((mazeWidth - 1) / 2);
+			maze.grid[mazeWidth - 1][randPlace1 * 2]->type = 2;
+			break;
+		case 1:
+			randPlace2 = rand() % ((mazeHeight - 1) / 2);
+			maze.grid[mazeWidth - 1][randPlace2 * 2]->type = 2;
+			break;
+	}
 
 
 	vector<Cell*> Stack;
@@ -156,7 +172,7 @@ void MainScene::GenerateRandomMaze()
 
 			else if (maze.grid[i][j]->type == 1)
 			{
-				maze.grid[i][j] = CreateRectangle<Cell>(50, 50, sf::Color::Gray, new AABBCollider(50, 50));
+				maze.grid[i][j] = CreateRectangle<Cell>(50, 50, sf::Color::Black, new AABBCollider(50, 50));
 				maze.grid[i][j]->SetPosition(i * 50, j * 50);
 				maze.grid[i][j]->SetRigidBody(true);
 				maze.grid[i][j]->SetStatic(true);
@@ -180,36 +196,19 @@ void MainScene::OnInitialize()
 
 	GenerateRandomMaze();
 
-	int bezh = 0;
-
-	for (int i = 0; i < maze.grid.size(); i++)
-	{
-		for (int j = 0; j < maze.grid[i].size(); j++)
-		{
-			if (maze.grid[i][j]->GetType() == 0)
-			{
-				bezh++;
-
-				//maze.grid[i][j]->SetPosition(10000, 10000);
-				//maze.grid[i].erase(maze.grid[i].begin() + j);
-				//j--;
-			}
-		}
-	}
-
-	cout << "Le nombre de cases suivante a ete teleporte : " << bezh << endl;
-
-
-
 	//Player
 	m_Player = CreateRectangle<Player>(30, 30, sf::Color::Red, new AABBCollider(30, 30));
 	m_Player->SetPosition(0, 0);
 	m_Player->SetSpeed(m_Player->GetMinSpeed());
 	m_Player->SetRigidBody(true);
 
-	GameManager::Get()->GetCamera()->SetFollowingEntity(m_Player);
+	m_Player->max_X = (mazeWidth * 50) - 40;
+	m_Player->max_Y = (mazeHeight * 50) - 40;
 
-	m_light = CreateCircle<Entity>(1000, 3000, sf::Color::Transparent, nullptr);
+	GameManager::Get()->GetCamera()->SetFollowingEntity(m_Player);
+	GameManager::Get()->GetCamera()->Zoom(0.4);
+
+	m_light = CreateCircle<Entity>(120, 3000, sf::Color::Transparent, nullptr);
 }
 
 void MainScene::OnEvent(const sf::Event& event)
@@ -392,7 +391,7 @@ void MainScene::OnUpdate()
 		m_Player->UnsetRight();
 	}
 
-	Debug::DrawText(m_Player->GetPosition().x - 900, m_Player->GetPosition().y - 450, "FPS : " + std::to_string(GameManager::Get()->FPS), sf::Color::Yellow);
+	Debug::DrawText(m_Player->GetPosition().x - 360, m_Player->GetPosition().y - 180, "FPS : " + std::to_string(GameManager::Get()->FPS), sf::Color::Yellow);
 
 	/*std::cout << "x:" << m_Player->GetPosition().x << " y: " << m_Player->GetPosition().y << " speed : " << m_Player->GetSpeed() <<  std::endl;*/
 }

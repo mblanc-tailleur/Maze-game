@@ -47,8 +47,8 @@ public :
 
 	Entity* m_light;
 
-	int mazeWidth = 17;
-	int mazeHeight = 17;
+	int mazeWidth = 21;
+	int mazeHeight = 21;
 
 	void OnInitialize() override;
 	void OnEvent(const sf::Event& event) override;
