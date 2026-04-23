@@ -2,19 +2,23 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Parallaxe.h"
+#include "Level.h"
+#include "Boss.h"
+#include "AABBCollider.h"
+#include "Utils.h"
+#include "Debug.h"
+#include <iostream>
+#include <random>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include "Square.h"
+#include "Maze.h"
 
 class Level;
-#include "enemies.h"
-#include "IA_Enemies.h"
 
 class MainScene : public Scene
 {
-public:
-
 private :
 	Player* m_Player;
-
-	std::vector<enemies*> mEnemies;
 
 	Level* m_Level;
 
@@ -37,7 +41,10 @@ private :
 public :
 	Player* GetPlayer() { return m_Player; }
 
-	std::vector<enemies*> GetEnnemyList() { return mEnemies; }
+	Maze maze;
+
+	int mazeWidth = 11;
+	int mazeHeight = 11;
 
 	void OnInitialize() override;
 	void OnEvent(const sf::Event& event) override;
@@ -46,4 +53,6 @@ public :
 	void SpawnCollider(float x, float y, float width, float height);
 
 	void OnUpdate() override;
+
+	void GenerateRandomMaze();
 };

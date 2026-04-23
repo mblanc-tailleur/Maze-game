@@ -2,15 +2,15 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <ItemGroup>
     <Filter Include="header">
-      <UniqueIdentifier>{ADAB3814-794D-4E83-B988-56FE77BD939E}</UniqueIdentifier>
+      <UniqueIdentifier>{AFD12F3E-66E4-41B5-A162-5A29EC5F7E06}</UniqueIdentifier>
       <Extensions>h;hpp</Extensions>
     </Filter>
     <Filter Include="resource">
-      <UniqueIdentifier>{F06496A6-9600-4193-9255-6912EDFB2760}</UniqueIdentifier>
+      <UniqueIdentifier>{D66AF786-5893-491B-BB46-55B85BDDB95C}</UniqueIdentifier>
       <Extensions>hlsl;jpg;jpeg;png;wav;mp3;ico;dds;rc;obj</Extensions>
     </Filter>
     <Filter Include="source">
-      <UniqueIdentifier>{242C32C1-46DE-4F63-81FA-F833A26F8100}</UniqueIdentifier>
+      <UniqueIdentifier>{80663AF2-6EC5-4345-A305-80DED37C08A4}</UniqueIdentifier>
       <Extensions>cpp;c</Extensions>
     </Filter>
   </ItemGroup>
@@ -64,6 +64,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\Mini_studio\skill.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Mini_studio\Square.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\Mini_studio\StateMachine.cpp">
@@ -126,6 +129,9 @@
     <ClInclude Include="..\..\..\src\Mini_studio\skill.h">
       <Filter>header</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\Mini_studio\Square.h">
+      <Filter>header</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\src\Mini_studio\StateMachine.h">
       <Filter>header</Filter>
     </ClInclude>
@@ -141,12 +147,12 @@
     <None Include="..\..\..\src\Mini_studio\small.ico">
       <Filter>resource</Filter>
     </None>
-    <ClCompile Include="..\..\..\src\Mini_studio\Square.cpp">
+    <ClCompile Include="..\..\..\src\Mini_studio\Maze.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\Mini_studio\Square.h">
+    <ClInclude Include="..\..\..\src\Mini_studio\Maze.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>

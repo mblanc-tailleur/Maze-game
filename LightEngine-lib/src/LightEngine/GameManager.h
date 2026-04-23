@@ -47,6 +47,7 @@ public :
 
 	sf::Color mClearColor;
 
+	int FPS = 0;
 
 private:
 	GameManager();

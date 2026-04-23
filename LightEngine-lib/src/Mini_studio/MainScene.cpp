@@ -1,17 +1,5 @@
 #include "MainScene.h"
-#include "Player.h"
-#include "Level.h"
-#include "Boss.h"
 
-#include "AABBCollider.h"
-
-#include "Utils.h"
-#include "Debug.h"
-#include <iostream>
-#include <random>
-#include <SFML/Graphics/RectangleShape.hpp>
-
-#include "Square.h"
 
 float timeSpent = 0;
 float timeNeeded = 1.8;
@@ -46,15 +34,58 @@ void MainScene::SpawnCollider(float x, float y, float width, float height)
 	pEntity->SetStatic(true); */
 }
 
+void MainScene::GenerateRandomMaze()
+{
+	vector<vector<Cell*>*> vv;
+
+	for (int i = 0; i < mazeHeight; i++)
+	{
+		vector<Cell*> v;
+
+		for (int j = 0; j < mazeWidth; j++)
+		{
+			Cell* c;
+
+			if ((i % 2 == 0) and (j % 2 == 0))
+			{
+				c = CreateRectangle<Cell>(50, 50, sf::Color::White, new AABBCollider(50, 50));
+				c->SetRigidBody(false);
+				c->type = 0;
+			}
+
+			else
+			{
+				c = CreateRectangle<Cell>(50, 50, sf::Color::Blue, new AABBCollider(50, 50));
+				c->SetRigidBody(true);
+				c->SetStatic(true);
+				c->type = 1;
+			}
+
+			c->SetPosition(i * 50, j * 50);
+
+			v.push_back(c);
+		}
+
+		vv.push_back(&v);
+	}
+
+	maze.grid = &vv;
+}
+
 void MainScene::OnInitialize() 
 {
+	GenerateRandomMaze();
+
+
 	srand(time(NULL));
 
 	//Player
-	m_Player = CreateRectangle<Player>(80, 80, sf::Color::Red, new AABBCollider(80, 80));
-	m_Player->SetPosition(900, 450);
+	m_Player = CreateRectangle<Player>(30, 30, sf::Color::Red, new AABBCollider(30, 30));
+	m_Player->SetPosition(0, 0);
 	m_Player->SetSpeed(m_Player->GetMinSpeed());
 	m_Player->SetRigidBody(true);
+
+	GameManager::Get()->GetCamera()->SetFollowingEntity(m_Player);
 }
 
 void MainScene::OnEvent(const sf::Event& event)
@@ -102,19 +133,10 @@ void MainScene::OnEvent(const sf::Event& event)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 void MainScene::OnUpdate()
 {
+	
+
 	//if (enemy1->telemetrie() <= 500 && enemy1 != nullptr) {
 	//	std::cout << "detected" << std::endl;
 	//	fall_attack = true;
@@ -132,9 +154,8 @@ void MainScene::OnUpdate()
 	//}
 
 	
-	//enemy1->moveingInLigne(100,500);
-
-	timeSpent += GetDeltaTime();
+	// Squares moving
+	/*timeSpent += GetDeltaTime();
 	if (timeSpent >= timeNeeded)
 	{
 		timeSpent -= timeNeeded;
@@ -196,7 +217,7 @@ void MainScene::OnUpdate()
 			}
 		}
 	}
-
+	*/
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) 
 	{
@@ -246,6 +267,8 @@ void MainScene::OnUpdate()
 			m_Player->SetLeft();
 			m_Player->UnsetRight();
 	}
+
+	Debug::DrawText(m_Player->GetPosition().x - 900, m_Player->GetPosition().y - 450, "FPS : " + std::to_string(GameManager::Get()->FPS), sf::Color::Yellow);
 
 	/*std::cout << "x:" << m_Player->GetPosition().x << " y: " << m_Player->GetPosition().y << " speed : " << m_Player->GetSpeed() <<  std::endl;*/
 }

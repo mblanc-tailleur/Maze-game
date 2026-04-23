@@ -17,12 +17,12 @@ void Shockwave::OnInitialize()
 
 void Shockwave::ApplyEffects()
 {
-    MainScene scene;
+    /*MainScene scene;
 
     sf::Vector2f origin = GetPosition(0.5f, 0.5f);
 
       
-    ennemies = scene.GetEnnemyList(); //à remplacer avec le bon nom de fonction
+    //ennemies = scene.GetEnnemyList(); //à remplacer avec le bon nom de fonction
 
     for (enemies* ennemy : ennemies)
     {
@@ -35,7 +35,7 @@ void Shockwave::ApplyEffects()
 
 
 
-    }
+    }*/
 }
 
 void Shockwave::OnUpdate()

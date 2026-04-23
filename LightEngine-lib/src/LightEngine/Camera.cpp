@@ -16,7 +16,7 @@ void Camera::Update()
 	if (mFollowingEntity == nullptr)
 		return;
 
-	SetPosition({ mFollowingEntity->GetPosition().x, mFollowingEntity->GetPosition().y - 200 });
+	SetPosition({ mFollowingEntity->GetPosition().x, mFollowingEntity->GetPosition().y });
 }
 
 sf::View* Camera::GetView()

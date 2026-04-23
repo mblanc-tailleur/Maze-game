@@ -41,15 +41,15 @@ void Player::OnCollision(Entity* pOther, CollidingSide collidingSide)
 	
 	if (pOther->IsRigidBody() == true)
 	{
-		pOther->Destroy();
-		Destroy();
-		exit(0);
+		//pOther->Destroy();
+		//Destroy();
+		//exit(0);
 	}
 
 
 	if (ennemy_proj != nullptr && ennemy_proj->GetOwnerTag() != mTag)
 	{
-		pOther->Destroy();
+		//pOther->Destroy();
 	}
 
 }
@@ -85,9 +85,9 @@ void Player::OnUpdate()
 {
 	Scene* scene = GetScene();
 
-	if (GetPosition().x < 0)
+	if (GetPosition().x < -10)
 	{
-		SetPosition(0, GetPosition().y);
+		SetPosition(-10, GetPosition().y);
 	}
 
 	if (GetPosition().x > 1800)
@@ -95,9 +95,9 @@ void Player::OnUpdate()
 		SetPosition(1800, GetPosition().y);
 	}
 
-	if (GetPosition().y < 0)
+	if (GetPosition().y < -10)
 	{
-		SetPosition(GetPosition().x, 0);
+		SetPosition(GetPosition().x, -10);
 	}
 
 	if (GetPosition().y > 900)

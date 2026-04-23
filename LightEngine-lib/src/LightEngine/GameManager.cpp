@@ -52,7 +52,7 @@ void GameManager::CreateWindow(unsigned int width, unsigned int height, const ch
 	mClearColor = clearColor;
 }
 float timer = 0.0f;
-int FPS = 0;
+
 void GameManager::Run()
 {
 	if (mpWindow == nullptr) 
@@ -79,7 +79,7 @@ void GameManager::Run()
 			timer = 0.f;
 		}
 			
-		Debug::DrawText(10.f, 10.f, "FPS: " + std::to_string(FPS), sf::Color::White);
+		
 
 		HandleInput();
 

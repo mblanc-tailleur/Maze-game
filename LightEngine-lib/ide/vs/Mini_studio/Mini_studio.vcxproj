@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{414A429C-E53A-4921-8D16-1D5C33386961}</ProjectGuid>
+    <ProjectGuid>{9707F9B0-B6B5-40FF-B71F-27CF09602390}</ProjectGuid>
     <RootNamespace>Mini_studio</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -103,6 +103,7 @@
     <ClCompile Include="..\..\..\src\Mini_studio\Level.cpp" />
     <ClCompile Include="..\..\..\src\Mini_studio\main.cpp" />
     <ClCompile Include="..\..\..\src\Mini_studio\MainScene.cpp" />
+    <ClCompile Include="..\..\..\src\Mini_studio\Maze.cpp" />
     <ClCompile Include="..\..\..\src\Mini_studio\Parallaxe.cpp" />
     <ClCompile Include="..\..\..\src\Mini_studio\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -128,6 +129,7 @@
     <ClInclude Include="..\..\..\src\Mini_studio\Level.h" />
     <ClInclude Include="..\..\..\src\Mini_studio\main.h" />
     <ClInclude Include="..\..\..\src\Mini_studio\MainScene.h" />
+    <ClInclude Include="..\..\..\src\Mini_studio\Maze.h" />
     <ClInclude Include="..\..\..\src\Mini_studio\Parallaxe.h" />
     <ClInclude Include="..\..\..\src\Mini_studio\pch.h" />
     <ClInclude Include="..\..\..\src\Mini_studio\Player.h" />
