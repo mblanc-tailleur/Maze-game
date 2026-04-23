@@ -18,6 +18,8 @@ class Level;
 class MainScene : public Scene
 {
 private :
+	int a = 0;
+
 	Player* m_Player;
 
 	Level* m_Level;
@@ -43,8 +45,10 @@ public :
 
 	Maze maze;
 
-	int mazeWidth = 11;
-	int mazeHeight = 11;
+	Entity* m_light;
+
+	int mazeWidth = 17;
+	int mazeHeight = 17;
 
 	void OnInitialize() override;
 	void OnEvent(const sf::Event& event) override;

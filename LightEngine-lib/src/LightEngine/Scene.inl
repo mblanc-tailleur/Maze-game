@@ -22,13 +22,15 @@ T* Scene::CreateRectangle(float width, float height, const sf::Color& color, Col
 }
 
 template<typename T>
-T* Scene::CreateCircle(float radius, const sf::Color& color, Collider* collider)
+T* Scene::CreateCircle(float radius, float outlineThickness, const sf::Color& color, Collider* collider)
 {
 	static_assert(std::is_base_of<Entity, T>::value, "T must be derived from Entity");
 
 	T* newEntity = new T();
 
 	sf::CircleShape* shape = new sf::CircleShape(radius);
+	shape->setOutlineThickness(outlineThickness);
+	shape->setOutlineColor(sf::Color::Black);
 
 	Entity* entity = newEntity;
 	entity->Initialize(radius, shape, color, collider);

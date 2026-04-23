@@ -18,6 +18,8 @@ int main()
 	_CrtDumpMemoryLeaks();
 #endif
 
+	srand(time(NULL));
+
 	GameManager* pInstance = GameManager::Get();
 
 	pInstance->CreateWindow(1800, 900, "Scene", 60, sf::Color::Black);

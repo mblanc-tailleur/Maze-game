@@ -26,7 +26,7 @@ void SampleScene::OnInitialize()
 	pEntity1->SetRigidBody(true);
 
 	//Circle
-	pEntity2 = CreateCircle<DummyEntity>(50, sf::Color::Green, new CircleCollider(50));
+	//pEntity2 = CreateCircle<DummyEntity>(50, sf::Color::Green, new CircleCollider(50));
 	pEntity2->SetPosition(500, 500);
 	pEntity2->SetRigidBody(true);
 

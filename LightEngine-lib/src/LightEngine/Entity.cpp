@@ -46,7 +46,7 @@ void Entity::Initialize(float radius, sf::CircleShape* shape, const sf::Color& c
 	mTransformable->setOrigin(0.f, 0.f);
 	((sf::Shape*)mDrawable)->setFillColor(color);
 
-	((sf::CircleShape*)mTransformable)->setRadius(radius / 2);
+	((sf::CircleShape*)mTransformable)->setRadius(radius);
 
 	mWidth = radius * 2;
 	mHeight = radius * 2;

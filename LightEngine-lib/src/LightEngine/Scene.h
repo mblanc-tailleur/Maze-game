@@ -28,7 +28,7 @@ public:
 	T* CreateRectangle(float width, float height, const sf::Color& color, Collider* collider);
 
 	template<typename T>
-	T* CreateCircle(float radius, const sf::Color& color, Collider* collider);
+	T* CreateCircle(float radius, float outlineThickness, const sf::Color& color, Collider* collider);
 
 	template<typename T>
 	T* CreateSprite(float width, float height, const char* texturePath, Collider* collider);

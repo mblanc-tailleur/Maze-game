@@ -22,9 +22,9 @@ T* Entity::CreateRectangle(float width, float height, const sf::Color& color, Co
 }
 
 template<typename T>
-T* Entity::CreateCircle(float radius, const sf::Color& color, Collider* collider)
+T* Entity::CreateCircle(float radius, float outlineThickness, const sf::Color& color, Collider* collider)
 {
-	return GetScene()->CreateCircle<T>(radius, color, collider);
+	return GetScene()->CreateCircle<T>(radius, outlineThickness, color, collider);
 }
 
 template<typename T>

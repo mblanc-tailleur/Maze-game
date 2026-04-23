@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "AABBCollider.h"
-
+#include "Maze.h"
 
 void Player::MoveRight(float deltatime) 
 {
@@ -36,6 +36,12 @@ void Player::SetLeft()
 
 void Player::OnCollision(Entity* pOther, CollidingSide collidingSide)
 {
+	if (static_cast<Cell*>(pOther)->GetType() == 0)
+	{
+		return;
+	}
+
+
 
 	Projectile* ennemy_proj = dynamic_cast<Projectile*>(pOther);
 	
@@ -90,9 +96,9 @@ void Player::OnUpdate()
 		SetPosition(-10, GetPosition().y);
 	}
 
-	if (GetPosition().x > 1800)
+	if (GetPosition().x > 810)
 	{
-		SetPosition(1800, GetPosition().y);
+		SetPosition(810, GetPosition().y);
 	}
 
 	if (GetPosition().y < -10)
@@ -100,9 +106,9 @@ void Player::OnUpdate()
 		SetPosition(GetPosition().x, -10);
 	}
 
-	if (GetPosition().y > 900)
+	if (GetPosition().y > 810)
 	{
-		SetPosition(GetPosition().x, 900);
+		SetPosition(GetPosition().x, 810);
 	}
 
 
