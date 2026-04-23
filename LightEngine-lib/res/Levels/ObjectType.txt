@@ -1,0 +1,9 @@
+platform W G P
+
+struct
+xmin/max
+ymin/max
+
+
+====---==-------------
+-------==---=====---==
